@@ -19,6 +19,9 @@ class Network{
 		float packet_gen_val, int queue_size, String switching_technique, int packet_size, 
 		int time_simulation, float k, float alpha, float lambda, String packet_length_dist )
 	{	
+		this.k= k;
+		this.alpha = alpha;
+		this.lambda = lambda;
 		this.time_simulation = time_simulation;
 		
 		sink = new Sink();
@@ -34,9 +37,7 @@ class Network{
 		packets_lost = 0;
 		total_delay= 0;
 		
-		this.k= k;
-		this.alpha = alpha;
-		this.lambda = lambda;
+		
 
 
 	} 

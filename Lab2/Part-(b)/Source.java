@@ -59,13 +59,13 @@ class Source
 	float time_next_packet(float time_prev_packet)
 	{
 		Random random_no = new Random();
-		System.out.println(random_no);
+		/*System.out.println(random_no);*/
 		if((packet_gen_type).equals("Constant"))
 			return(time_prev_packet + packet_gen_val);
 		else if((packet_gen_type).equals("Uniform"))
 			return(time_prev_packet + random_no.nextFloat()* packet_gen_val );
 		else
-			return(time_prev_packet + poisson_random(this.alpha) );
+			return(time_prev_packet + poisson_random(this.lambda) );
 	}
 
 	Packet transfer_packet()
@@ -78,20 +78,21 @@ class Source
 
 	float pareto_random(float k, float alpha)
 	{
-		
+		System.out.println("Hello");
 		Random random_no = new Random();
 		float u = random_no.nextFloat();
 		float res = k * (float)Math.pow(1.0- u, -1.0 /alpha );
-		System.out.println(res);
+		/* System.out.println(res); */
 		return(res);
 	}
 	
 	float poisson_random(float lambda)
 	{
+		/*System.out.println("Hi");*/
 		Random random_no = new Random();
 		float u = random_no.nextFloat();
 		float res = (float)-1.0 * (float)Math.log(u)/(float)lambda;
-		System.out.println(res);
+		/*System.out.println(res);*/
 		return(res);
 	}	  		
 

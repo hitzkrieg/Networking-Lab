@@ -4,7 +4,7 @@ class Simulation
 
 	public static void main(String[] args)
 	{
-		int no_sources = 2;
+		int no_sources = 3;
 		float link_bandwidth = 150;  
 		String packet_gen_type = "Poisson"; 
 		float packet_gen_val = (float)0.3;
@@ -17,11 +17,11 @@ class Simulation
 		String packet_length_dis= "Constant";
 		Network n1;
 		
-		for(lambda = 1; lambda < 20; lambda++)
+		for(lambda = 1; lambda < 10; lambda++)
 		{	
 			System.out.println("The value of lambda: " + lambda);
 			n1 = new Network(no_sources, link_bandwidth, packet_gen_type, packet_gen_val, queue_size,
-			 switching_technique, packet_size, 50000, k, alpha, lambda, packet_length_dis);
+			 switching_technique, packet_size, 5000, k, alpha, lambda, packet_length_dis);
 
 			n1.packet_switching();
 			float avg_delay = n1.calculate_average_delay();
@@ -30,7 +30,10 @@ class Simulation
 			float pc_packets_dropped = n1.calculate_pc_packets_lost();
 
 			
+			float link_util = n1.calculate_link_utilization();
+			
 			System.out.println("The % of packets dropped: "+ pc_packets_dropped );
+			System.out.println("The % link utilization: "+ link_util );
 			System.out.println("***************************"); 
 
 			/*System.out.println(no_sources + " " + avg_delay + " " + pc_packets_dropped);*/
