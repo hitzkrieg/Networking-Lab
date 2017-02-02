@@ -83,7 +83,7 @@ class Network{
 				else
 				{
 					packets_lost++;
-					total_delay += next_time - time;	
+					/* total_delay += next_time - time;	*/
 					
 				}
 
@@ -120,7 +120,7 @@ class Network{
 				else
 				{
 					packets_lost++;
-					total_delay += time - event.packet.time_gen;		
+					/* total_delay += time - event.packet.time_gen;	*/
 
 
 				}	

@@ -29,7 +29,6 @@ class Network{
 		packets_lost = 0;
 		total_delay= 0;
 
-
 	} 
 
 	void circuit_switching(int time_simulation)
@@ -38,7 +37,7 @@ class Network{
 
 		PriorityQueue<Event> events_list = new PriorityQueue<Event>();
 
-		events_list.add(new Event("Allocate time", time, null, 0));
+		/*events_list.add(new Event("Allocate time", time, null, 0));*/
 
 		for(int i=0; i< sources.size(); i++)
 		{	
@@ -58,10 +57,10 @@ class Network{
 			}
 			time = event.timestamp;
 
-			/* For visualizing
+			/*For visualizing
 			System.out.println(time);
-			System.out.println(event.event_name);
-			*/
+			System.out.println(event.event_name);*/
+			
 
 			circuit_switching_action(event, events_list, time);
 		}
@@ -84,7 +83,7 @@ class Network{
 				Source source3 = sources.get(source_to_allocate);
 				if(source3.source_queue.size()!=0)
 				{
-					if((float)source3.source_queue.get(0).packet_size/ source3.link_bandwidth < allocation_time)
+					if(((float)source3.source_queue.get(0).packet_size)/ source3.link_bandwidth < allocation_time)
 					{
 						events_list.add(new Event("Switch reached", 
 							time + ((float)source3.source_queue.get(0).packet_size)/source3.link_bandwidth, 
