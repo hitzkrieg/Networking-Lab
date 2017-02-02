@@ -82,7 +82,7 @@ class Source
 		Random random_no = new Random();
 		float u = random_no.nextFloat();
 		float res = k * (float)Math.pow(1.0- u, -1.0 /alpha );
-		System.out.println(res);
+		/*System.out.println(res);*/
 		return(res);
 	}
 	
